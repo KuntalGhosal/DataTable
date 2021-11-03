@@ -79,7 +79,7 @@ export default function Form() {
 
         var stringArr = JSON.stringify(arr);
 
-        // try and catch is a promise
+        // we are handling errors using try catch 
 
         try{
             localStorage.setItem('dataArr',stringArr);
