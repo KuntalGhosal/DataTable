@@ -2,9 +2,8 @@ import { Button } from '@material-ui/core';
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { GET_DATA } from '../actions/UserAction';
+import { SET_DATA } from '../Redux/actions/UserAction';
 import { CustomizeToast } from '../components/CommonLogic';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from "react-toastify";
 
 export default function DataTable() {
@@ -15,7 +14,7 @@ export default function DataTable() {
         var filterArr = store?.user?.dataListArray.filter((item,index)=>{
             return index !== i;
         })
-        dispatch({type:GET_DATA, payload:filterArr});
+        dispatch({type:SET_DATA, payload:filterArr});
         CustomizeToast("Deleted Successfully")
     }
     return (

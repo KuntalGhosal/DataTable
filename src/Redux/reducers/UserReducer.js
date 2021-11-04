@@ -1,4 +1,4 @@
-import { GET_DATA } from "../actions/UserAction";
+import { SET_DATA } from "../actions/UserAction";
 
 const initialState = {
     dataList: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState,action) => {
     switch (action.type) {
-        case GET_DATA:
+        case SET_DATA:
             return Object.assign({}, state, {
                 dataListArray: [...action.payload],
             })

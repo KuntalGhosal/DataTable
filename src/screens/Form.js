@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Box, Button, makeStyles } from '@material-ui/core'
 import TextBox from '../components/TextBox'
 import { CustomizeToast, CustomizeToastError } from '../components/CommonLogic';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from "react-toastify";
-import { GET_DATA } from '../actions/UserAction';
+import { SET_DATA } from '../Redux/actions/UserAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -70,7 +69,7 @@ export default function Form() {
     if(name !== "" && age !== "" && dob !== "" && gender !== ""){
        try{ arr.push({name:name,age:age,date:dob,gender:gender});
        Array.prototype.push.apply(arr,store?.user?.dataListArray);
-        dispatch({type:GET_DATA,payload:arr});
+        dispatch({type:SET_DATA,payload:arr});
         CustomizeToast("Data saved successfully");}catch(e){
             console.log(e);
         }
